@@ -1,0 +1,41 @@
+static variable is shared between all objects in an array 
+in this example school name of every student is same
+so assigning static to school name shows it is common
+so we should not call static variable with object s1.school or s2.school or s3.school
+we should call classname.school which is Student.school in this scenario
+
+
+class Student
+{
+    static String School;
+    int rollNo;
+    String name;
+    int marks;
+
+    public void show()
+    {
+        System.out.println(School +" " +rollNo + " " + name + " " +marks);
+    }
+
+}
+
+public class Main
+{
+    public static void main(String a[])
+    {
+        Student s1 = new Student();
+        Student s2 = new Student();
+        Student.School = "Pratibha Vidyalayam";
+        s1.rollNo=1;
+        s1.name="Hemanth";
+        s1.marks=88;
+        s2.rollNo=2;
+        s2.name="Nma";
+        s2.marks = 99;
+        s1.show();
+        s2.show();
+
+
+
+    }
+}
