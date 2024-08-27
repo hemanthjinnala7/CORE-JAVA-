@@ -1,0 +1,38 @@
+creating a method to go to a shopkeeper and buying a pen 
+
+
+class ShopKeeper {
+    public String buy_pens(int x) 
+    {
+        if (x < 5)
+        {
+            return "Your amount isn't sufficient to buy a pen";
+        } 
+        else if (x % 5 == 0) 
+        {
+            int pens = x / 5;
+            return "You can buy " + pens + " pens";
+        } 
+        else
+        {
+            int pens = x / 5;
+            int change = x % 5;
+            return pens + " pens and " + change + " change";
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ShopKeeper shop = new ShopKeeper();
+        System.out.println(shop.buy_pens(10));
+        System.out.println(shop.buy_pens(7));
+        System.out.println(shop.buy_pens(4));
+    }
+}
+
+output->
+You can buy 2 pens
+1 pens and 2 change
+Your amount isn't sufficient to buy a pen
+
