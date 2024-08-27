@@ -1,4 +1,8 @@
-
+DRAWBACK OF AN ARRAY 
+-> array is an object created by using new keyword takes heap memory
+-> it will occupy some space and memory locations it takes is continous 
+-> once you assign a size to an array , you cant modify the size anymore
+ -> we cant store different types of data in the array
 
 public class Main
 {
