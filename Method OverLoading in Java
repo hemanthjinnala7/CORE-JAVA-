@@ -1,0 +1,41 @@
+class Calculator
+{
+    public int add(int x,int y)
+    {
+        return x+y;
+    }
+    public int add(int x,int y,int z)
+    {
+        return x+y-z;
+    }
+    public String add(String x, int y, int z)
+    {
+        return x+y+z;
+    }
+
+}
+
+public class Main
+{
+    public static void main(String a[])
+    {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(3,5));
+        System.out.println(calc.add(5,5,3));
+        System.out.println(calc.add("add",4,5));
+
+    }
+}
+
+### Calculator Class with Method Overloading
+
+This code demonstrates method overloading in Java using a `Calculator` class. The `Calculator` class has three `add` methods, each performing different operations based on the parameters:
+
+1. **`add(int x, int y)`**: Adds two integers and returns the result.
+2. **`add(int x, int y, int z)`**: Adds three integers but subtracts the third integer from the sum of the first two.
+3. **`add(String x, int y, int z)`**: Concatenates a string with the sum of two integers and returns the result as a string.
+
+#### Example Usage in the `Main` Class:
+- **`calc.add(3, 5)`**: Outputs the sum of 3 and 5.
+- **`calc.add(5, 5, 3)`**: Outputs the result of 5 + 5 - 3.
+- **`calc.add("add", 4, 5)`**: Outputs the string "add9", which is the result of concatenating "add" with the sum of 4 and 5.
