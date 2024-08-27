@@ -1,0 +1,28 @@
+in java inorder to create an object we have to create a class first
+who creates objects in java?
+its JVM -> Java Virutal Machine 
+
+in a class we can put 2 things
+->storing variables
+->methods
+
+ import java.sql.SQLOutput;
+
+class Calculator
+{
+    int a = 11;
+    public int add(int a,int b)
+    {
+        return a+b;
+    }
+}
+
+public class Main
+{
+    public static void main(String a[])
+    {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(3,7)); --> class{method}
+        System.out.println(calc.a); --> class {variable}
+    }
+}
