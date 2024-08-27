@@ -1,0 +1,13 @@
+to compile you java code you need a java tool --> JDK{java development kit}
+we write java code to compile the program but you think your system understands your java code
+Noo... your system only understands only byte code....
+so your java code converts into a byte code before it runs on a machine --> JVM {Java Virutal Machine}
+so JVM helps you to run  your code 
+JRE {java runtime enviornment}
+to run your code .. it needs some extra files thats where jre will help you
+
+JVM is a part of JRE
+and finally JVM AND JRE are a part of JDK
+JDK IS THE TOP LAYER AMONG JVM AND JRE
+
+so when you install jdk in your system it will install updated jvm and updated jre in your system 
