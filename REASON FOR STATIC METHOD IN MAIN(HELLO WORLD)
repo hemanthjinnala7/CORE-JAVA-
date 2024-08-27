@@ -1,0 +1,9 @@
+from the scratch we are using static method in java (main method)
+because
+if we dont use static method then main method becomes a non-static method 
+which means if you have to call main you have to create an object for public class {name}
+
+we all know that main method is the starting point of execution .. 
+if the execution is not started how can we call the object of class{name}
+
+to solve this problem we maintian the main method as static 
