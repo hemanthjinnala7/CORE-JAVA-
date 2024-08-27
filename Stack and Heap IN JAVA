@@ -1,0 +1,4 @@
+stack -> last in first out 
+in stack we store data in diff. sequence
+
+heap ->  works like a queue in java
