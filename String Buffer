@@ -1,0 +1,18 @@
+
+public class Main
+{
+    public static void main(String a[])
+    {
+
+        // to change the values in a string we use stringbuffer in java and assign it to string after using toString()
+        StringBuffer sb = new StringBuffer("hemanth");
+        System.out.println(sb.capacity());
+        sb.append(" jinnala");
+        sb.deleteCharAt(3);
+        sb.insert(0,"java ");
+        System.out.println(sb);
+        String str = sb.toString();
+        System.out.println(str);
+
+    }
+}
