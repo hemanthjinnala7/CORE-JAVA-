@@ -1,0 +1,76 @@
+class Student{
+
+        private String name;
+        private int num;
+        public Student()
+        {
+            name = "Hemanth";
+            num = 15;
+        }
+        public void showName()
+        {
+            System.out.println(name);
+        }
+        public void showNum()
+        {
+            System.out.println(num);
+        }
+
+
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        Student stu = new Student();
+        stu.showName();
+        stu.showNum();
+
+
+    }
+}
+
+
+
+You're absolutely correct in your observations about constructors in Java. Let me summarize and explain the key points you mentioned with respect to the provided code:
+
+### Key Points About Constructors:
+1. **Constructor Name:**
+   - A constructor's name must exactly match the class name. In your example, the constructor is named `Student`, which correctly matches the name of the class `Student`.
+
+2. **No Return Type:**
+   - Constructors do not have a return type, not even `void`. This is a distinguishing feature of constructors compared to regular methods. Your constructor `public Student()` is correctly defined without any return type.
+
+3. **Automatic Invocation:**
+   - A constructor is automatically called when an instance (or object) of a class is created. In your code, when `Student stu = new Student();` is executed, the constructor `Student()` is automatically invoked, initializing the `name` and `num` fields.
+
+### How Your Code Works:
+
+#### `Student` Class:
+- **Private Fields:**
+  - `private String name;`: This field is initialized to `"Hemanth"` by the constructor.
+  - `private int num;`: This field is initialized to `15` by the constructor.
+
+- **Constructor:**
+  - `public Student()`: This is the default constructor that initializes `name` to `"Hemanth"` and `num` to `15` when a `Student` object is created.
+
+- **Methods:**
+  - `public void showName()`: Prints the value of `name` to the console.
+  - `public void showNum()`: Prints the value of `num` to the console.
+
+#### `Main` Class:
+- The `main` method creates an instance of `Student` using `Student stu = new Student();`. This triggers the constructor, which initializes the fields.
+- The `showName` and `showNum` methods are then called to display the values of `name` and `num`.
+
+### Output:
+When the `main` method is executed, the output will be:
+
+```
+Hemanth
+15
+```
+
+### Summary:
+- The constructor `Student()` correctly initializes the fields `name` and `num` when an object of the `Student` class is created.
+- The constructor is automatically invoked when the `Student` object `stu` is instantiated.
+- The class name and constructor name are the same, and the constructor does not have a return type, which follows the correct Java syntax and conventions.
