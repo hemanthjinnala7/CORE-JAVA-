@@ -1,0 +1,57 @@
+encapsulation -> wrapping up the code into a single unit 
+
+class Student{
+
+        private String name;
+        private int num;
+
+        public void setName(String x)
+        {
+            name = x;
+        }
+        public void setNum(int x)
+        {
+            num = x;
+        }
+        public void showName()
+        {
+            System.out.println(name);
+        }
+        public void showNum()
+        {
+            System.out.println(num);
+        }
+
+
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        Student stu = new Student();
+        stu.setName("Hemanth");
+        stu.setNum(415);
+        stu.showName();
+        stu.showNum();
+
+
+    }
+}
+
+
+
+
+Yes, the example you provided demonstrates encapsulation, which is one of the fundamental principles of object-oriented programming (OOP). 
+
+### What is Encapsulation?
+Encapsulation refers to the bundling of data (fields) and the methods (functions) that operate on that data into a single unit or class. It also involves restricting direct access to some of the object's components, which is typically achieved by making fields private and providing public methods to access and modify those fields.
+
+### How the Example Demonstrates Encapsulation:
+1. **Private Fields:**
+   - The `name` and `num` fields in the `Student` class are declared as `private`, meaning they cannot be accessed directly from outside the class. This prevents unauthorized or accidental modification of these fields.
+
+2. **Public Methods:**
+   - The `setName(String x)` and `setNum(int x)` methods are public and provide controlled access to the private fields. They allow the values of `name` and `num` to be set by code outside the class.
+   - The `showName()` and `showNum()` methods are also public and allow controlled access to read the values of `name` and `num`.
+
+By encapsulating the data within the `Student` class and controlling access through public methods, you ensure that the internal state of the object can only be modified or accessed in a controlled manner. This is a key aspect of encapsulation, contributing to more maintainable and secure code.
