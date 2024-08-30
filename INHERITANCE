@@ -1,0 +1,89 @@
+class Student{
+
+        String name;
+        int num;
+
+
+}
+class   AdvStudent extends Student{
+    String Country ;
+}
+class Dain extends AdvStudent{
+    int p ;
+}
+public class Main{
+    public static void main(String a[])
+    {
+        Dain stu = new Dain();
+        stu.name="Hemanth";
+        stu.num=123;
+        stu.Country="India";
+        stu.p=234;
+        System.out.println("Hemanth");
+
+
+
+    }
+}
+
+//multiple inheritance doesnt work in javaYou're correct that multiple inheritance doesn't work in Java. Java does not support multiple inheritance with classes, meaning a class cannot inherit from more than one class. However, your code demonstrates **single inheritance** through a chain of classes, which Java fully supports.
+
+### Understanding the Code:
+
+1. **Class Hierarchy:**
+   - `Student`: This is the base class with two fields: `name` and `num`.
+   - `AdvStudent`: This class extends `Student`, inheriting its fields (`name` and `num`). It also introduces a new field `Country`.
+   - `Dain`: This class extends `AdvStudent`, inheriting all fields from both `Student` and `AdvStudent`. It adds an additional field `p`.
+
+2. **Inheritance Chain:**
+   - `Dain` inherits from `AdvStudent`, and `AdvStudent` inherits from `Student`. This creates a chain of inheritance:
+     - `Dain` inherits: `name`, `num`, `Country`, and `p`.
+     - `AdvStudent` inherits: `name`, `num` and adds `Country`.
+     - `Student` starts with `name` and `num`.
+
+### Code Execution:
+
+- When you create an instance of `Dain` using `Dain stu = new Dain();`, the `stu` object has access to all the fields defined in `Dain`, `AdvStudent`, and `Student`.
+- You then set the values for `stu.name`, `stu.num`, `stu.Country`, and `stu.p`.
+- The `System.out.println("Hemanth");` statement prints `"Hemanth"` to the console. Note that this line is hardcoded and does not utilize the `stu` object's fields.
+
+### Output:
+The code will print:
+
+```
+Hemanth
+```
+
+However, the code doesn't print the values of `stu.name`, `stu.num`, `stu.Country`, or `stu.p`. If you want to print these values, you can modify the `main` method as follows:
+
+```java
+public class Main{
+    public static void main(String a[])
+    {
+        Dain stu = new Dain();
+        stu.name = "Hemanth";
+        stu.num = 123;
+        stu.Country = "India";
+        stu.p = 234;
+
+        System.out.println("Name: " + stu.name);
+        System.out.println("Number: " + stu.num);
+        System.out.println("Country: " + stu.Country);
+        System.out.println("P: " + stu.p);
+    }
+}
+```
+
+### Updated Output:
+With the above modification, the output will be:
+
+```
+Name: Hemanth
+Number: 123
+Country: India
+P: 234
+```
+
+### Summary:
+- **Single Inheritance**: Your code correctly demonstrates single inheritance, where `Dain` inherits from `AdvStudent`, and `AdvStudent` inherits from `Student`.
+- **Multiple Inheritance**: Java doesn't support multiple inheritance for classes to avoid complexity and ambiguity, like the "Diamond Problem". Instead, Java uses interfaces to achieve multiple inheritance of behavior.
