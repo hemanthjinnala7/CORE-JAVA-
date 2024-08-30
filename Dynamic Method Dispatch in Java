@@ -1,0 +1,64 @@
+class Student{
+    public void show(){
+        System.out.println("IN STUDENT");
+    }
+}
+class  AdvStudent extends Student{
+    public void show(){
+        System.out.println("IN ADVSTUDENT");
+    }
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        Student st = new Student();
+        st.show();
+        st = new AdvStudent();
+        st.show();
+    }
+}
+
+Your code example perfectly illustrates the concept of **dynamic method dispatch** (also known as runtime polymorphism) in Java.
+This is a crucial concept in object-oriented programming.
+
+### Explanation of Dynamic Method Dispatch:
+
+1. **Dynamic Method Dispatch:**
+   - Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at runtime, rather than at compile time.
+   - It allows a superclass reference to refer to a subclass object and the method to be called will be the one defined by the subclass.
+
+2. **Your Example:**
+   - **`Student` Class:** Defines a method `show()` that prints `"IN STUDENT"`.
+   - **`AdvStudent` Class:** Extends `Student` and overrides the `show()` method to print `"IN ADVSTUDENT"`.
+
+### Key Steps in `Main` Method:
+
+1. **Creating an Instance of `Student`:**
+   - `Student st = new Student();`
+   - Here, `st` is a reference of type `Student` pointing to an instance of `Student`. When `st.show()` is called, 
+it invokes the `show()` method in `Student`, printing `"IN STUDENT"`.
+
+2. **Assigning a `AdvStudent` Object to `st`:**
+   - `st = new AdvStudent();`
+   - Now, `st` still refers to a `Student` type, but it's pointing to an object of `AdvStudent`.
+   - When `st.show()` is called, even though `st` is a reference of type `Student`, it invokes the `show()` method of `AdvStudent`, printing `"IN ADVSTUDENT"`.
+
+### Output of Your Code:
+
+```plaintext
+IN STUDENT
+IN ADVSTUDENT
+```
+
+### How Dynamic Method Dispatch Works Here:
+- When you invoke `st.show()` the first time, the method of the actual `Student` object is called.
+- After `st` is assigned to a new `AdvStudent` object, the overridden method `show()` in `AdvStudent` is called instead.
+
+This works because Java uses dynamic method dispatch to determine which method implementation to execute based on the actual object type at runtime, not the reference type.
+
+### Summary:
+- **Dynamic Method Dispatch** is an important feature of Java that allows for runtime decision-making when it comes to method invocation. 
+- It facilitates runtime polymorphism, enabling a superclass reference to execute the subclass’s overridden method based on the actual object it points to at runtime.
+
+Your example is a textbook illustration of this concept.
