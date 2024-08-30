@@ -1,0 +1,57 @@
+final is used in 3 scenarious 
+1. variable
+2. class
+3.method
+
+final int num = 8;
+num = 7; // reassigning a value isn't allowed
+
+final class Student{
+    public void show(){
+        System.out.println("IN STUDENT");
+    }
+}
+class  AdvStudent extends Student{
+    public void show(){
+        System.out.println("IN ADVSTUDENT");
+    }
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        Student st = new Student();
+        st.show();
+        st = new AdvStudent();
+        st.show();
+
+    }
+}
+
+when we assign a final keyword to a class it stop inheritance ability
+
+
+
+class Student{
+    public final void show(){
+        System.out.println("IN STUDENT");
+    }
+}
+class  AdvStudent extends Student{
+    public void show(){
+        System.out.println("IN ADVSTUDENT");
+    }
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        Student st = new Student();
+        st.show();
+        st = new AdvStudent();
+        st.show();
+
+    }
+}
+
+when we final a method the overriding of the method isn't allowed.
