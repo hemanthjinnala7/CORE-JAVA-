@@ -1,0 +1,57 @@
+class Student{
+
+    public int add(int a,int b){
+        return a+b;
+    }
+
+
+}
+class   AdvStudent extends Student{
+    public int add(int a,int b){
+        return a+b+1;
+    }
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        AdvStudent ab = new AdvStudent();
+
+        System.out.println(ab.add(2,3));
+
+
+
+    }
+}
+
+Your code snippet demonstrates **method overriding** in Java, which is a key feature of object-oriented programming. Let's break it down:
+
+### Classes and Method Overriding:
+
+1. **`Student` Class:**
+   - This class has a method `add(int a, int b)` that takes two integers as parameters and returns their sum (`a + b`).
+
+2. **`AdvStudent` Class:**
+   - This class extends `Student` and overrides the `add(int a, int b)` method. The overridden method returns the sum of the two integers plus one (`a + b + 1`).
+   - Method overriding allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
+
+### Execution in `Main`:
+
+1. **Creating an Instance:**
+   - The `main` method creates an instance of `AdvStudent` named `ab`.
+   
+2. **Calling the `add` Method:**
+   - When `ab.add(2, 3)` is called, it invokes the `add` method defined in `AdvStudent`, not the one in `Student`. Since the method is overridden, the implementation in `AdvStudent` is executed, which returns `2 + 3 + 1 = 6`.
+
+3. **Output:**
+   - The `System.out.println(ab.add(2, 3));` statement prints `6` to the console.
+
+### Key Takeaways:
+
+- **Method Overriding:** The `AdvStudent` class overrides the `add` method from the `Student` class. When the method is called on an instance of `AdvStudent`, the overridden version in `AdvStudent` is used.
+  
+- **Output:** The code correctly prints `6` because `AdvStudent`'s `add` method adds 1 to the sum of the two integers.
+
+### Summary:
+
+Your code correctly demonstrates the concept of method overriding in Java. When you call `add` on an `AdvStudent` object, it uses the overridden method, resulting in an output of `6`. This is different from multiple inheritance, which is not allowed in Java for classes. In Java, you can only extend one class, but you can implement multiple interfaces to achieve a form of multiple inheritance.
