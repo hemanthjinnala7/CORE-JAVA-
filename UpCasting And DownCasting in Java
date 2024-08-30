@@ -1,0 +1,29 @@
+
+class Student {
+    public void show() {
+        System.out.println("IN STUDENT");
+    }
+}
+
+class AdvStudent extends Student {
+    public void show1() {
+        System.out.println("IN ADVSTUDENT");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Upcasting: Creating an AdvStudent object and treating it as a Student
+        Student obj = new AdvStudent();  // Upcasting
+        
+        // Explicitly showing the upcasting process (though it's implicit and doesn't need a cast)
+        Student upcastedObj = (Student) obj; // This is technically redundant because 'obj' is already a Student type
+        
+        // Now performing downcasting: Converting the Student reference back to an AdvStudent reference
+        AdvStudent obj1 = (AdvStudent) upcastedObj;  // Downcasting
+        
+        // Calling methods on the downcasted object
+        obj1.show();   // This will call the show() method from the Student class
+        obj1.show1();  // This will call the show1() method from the AdvStudent class
+    }
+}
