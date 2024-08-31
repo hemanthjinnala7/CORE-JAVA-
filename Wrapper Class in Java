@@ -1,0 +1,64 @@
+Your code snippet demonstrates the concepts of **autoboxing** and **autounboxing** in Java, along with parsing a `String` to an `int`. Let's break down what's happening:
+
+### Autoboxing:
+Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes.
+
+- **Example in Your Code:**
+  ```java
+  int num = 3;
+  Integer number = num; // Autoboxing: converting primitive int to Integer object
+  ```
+  - Here, the primitive `int` `num` is automatically converted to its wrapper class `Integer`, which is known as autoboxing.
+
+### Autounboxing:
+Autounboxing is the reverse process where the Java compiler automatically converts an `Integer` (or any other wrapper class object) back to its corresponding primitive type.
+
+- **Example in Your Code:**
+  ```java
+  Integer num2 = new Integer(5);
+  int num3 = num2; // Autounboxing: converting Integer object to primitive int
+  ```
+  - Here, the `Integer` object `num2` is automatically converted back to the primitive `int` `num3`, which is known as autounboxing.
+
+### Parsing a String to an int:
+The `Integer.parseInt()` method is used to convert a `String` containing an integer into an actual `int`.
+
+- **Example in Your Code:**
+  ```java
+  String str = "56";
+  int ss = Integer.parseInt(str);
+  ```
+  - Here, the `String` `"56"` is parsed into an `int` value `56`.
+
+### Full Code:
+```java
+public class Main{
+    public static void main(String a[])
+    {
+        int num = 3;
+        Integer number = num; // Autoboxing
+
+        Integer num2 = new Integer(5);
+        int num3 = num2; // Autounboxing
+
+        String str = "56";
+        int ss = Integer.parseInt(str); // Parsing String to int
+        
+        System.out.println(number + " " + num3 + " " + ss);
+    }
+}
+```
+
+### Output:
+When you run this code, the output will be:
+
+```plaintext
+3 5 56
+```
+
+### Summary:
+- **Autoboxing:** Automatically converts a primitive value (`int`) to its corresponding wrapper object (`Integer`).
+- **Autounboxing:** Automatically converts a wrapper object (`Integer`) back to its corresponding primitive value (`int`).
+- **Parsing:** `Integer.parseInt()` converts a `String` representation of an integer into the actual `int` value.
+
+Your code correctly demonstrates all these concepts.
