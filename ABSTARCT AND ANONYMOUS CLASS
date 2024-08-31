@@ -1,0 +1,25 @@
+import java.sql.SQLOutput;
+
+abstract class A
+{
+    public abstract void show();
+
+}
+public class Main{
+    public static void main(String a[])
+    {
+        A obj = new A()
+        {
+            public void show()
+            {
+                System.out.println("IN NEW SHOW");
+            }
+        };
+        obj.show();
+        
+        //we know that we cant create an object for abstract class AND ABSTARCT METHOD but by using anonymous class we can create
+
+
+    }
+}
+
