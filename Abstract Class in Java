@@ -1,0 +1,30 @@
+abstract class Car
+{
+    abstract public void drive();
+    public void playmusic()
+    {
+        System.out.println("playing music");
+    }
+
+}
+
+class Wagnor extends Car{
+    public void drive()
+    {
+        System.out.println("Driving");
+        //when we define a class that is extends from abstract class
+        //we should create absrtact methods in the child class definitely
+        //otherwise it will give errors
+    }
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        //we should not create an object for abstract but we can create refernce like dynamic method dispatch
+        Car cc = new Wagnor();
+        cc.drive();
+        cc.playmusic();
+    }
+}
+
