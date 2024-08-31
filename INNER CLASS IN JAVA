@@ -1,0 +1,76 @@
+Your code example demonstrates the concept of **inner classes** in Java. Specifically, you are using a non-static inner class, also known as a **member inner class**. Let's break down how this works:
+
+### Explanation:
+
+1. **Outer Class `A`:**
+   - The class `A` contains an integer field `num` and a method `show()` which prints `"HELLO"` to the console.
+   - Inside class `A`, there is a non-static inner class `B` that contains a method `can()` which prints `"can can"` to the console.
+
+2. **Inner Class `B`:**
+   - The class `B` is defined within class `A`. This makes `B` an inner class of `A`.
+   - Since `B` is a non-static inner class, it is associated with an instance of the outer class `A`. It cannot exist independently and needs an instance of `A` to be created.
+
+3. **Main Method (`public class Main`):**
+   - **Creating an Instance of the Outer Class (`A`):**
+     ```java
+     A obj = new A();
+     ```
+     - Here, `obj` is an instance of the outer class `A`.
+     - You then access the `num` field and `show()` method of `A` using this instance.
+
+   - **Creating an Instance of the Inner Class (`B`):**
+     ```java
+     A.B obj1 = obj.new B();
+     ```
+     - This line creates an instance of the inner class `B`. Note how the instance of `B` is created using the outer class instance `obj` (`obj.new B()`).
+     - You then call the `can()` method of `B` using the instance `obj1`.
+
+### Code:
+```java
+import java.sql.SQLOutput;
+
+class A
+{
+    int num = 6;
+    public void show()
+    {
+        System.out.println("HELLO");
+    }
+    
+    class B
+    {
+        public void can()
+        {
+            System.out.println("can can");
+        }
+    }
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        A obj = new A();           // Create an instance of outer class A
+        System.out.println(obj.num); // Access the outer class field num
+        obj.show();                  // Call the outer class method show()
+        
+        A.B obj1 = obj.new B();     // Create an instance of inner class B
+        obj1.can();                  // Call the inner class method can()
+    }
+}
+```
+
+### Output:
+When you run the code, the output will be:
+
+```plaintext
+6
+HELLO
+can can
+```
+
+### Summary:
+- **Inner Class:** The class `B` is a non-static inner class within the outer class `A`.
+- **Instantiation:** To create an instance of the inner class `B`, you need an instance of the outer class `A`.
+- **Accessing Members:** You can access the outer class's members directly in the inner class, and vice versa, you can access the inner class by first creating an instance of the outer class.
+
+This design is often used to logically group classes that are only used in one place, or to build more complex structures where the inner class is tightly coupled to the outer class.
