@@ -1,0 +1,36 @@
+// aN INTERFACE can also inherit and implements other interfaces as well
+
+interface A {
+    void run();
+}
+interface B {
+    void walk();
+}
+interface C extends B,A{
+    void jog();
+}
+class All implements C{
+    public void run()
+    {
+        System.out.println("running");
+    }
+    public void walk()
+    {
+        System.out.println("walking");
+    }
+    public void jog()
+    {
+        System.out.println("jogging");
+    }
+}
+
+public class Main
+{
+    public static void main(String a[])
+    {
+        C all = new All();
+        all.run();
+        all.walk();
+        all.jog();
+    }
+}
