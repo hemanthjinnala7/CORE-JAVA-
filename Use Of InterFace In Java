@@ -1,0 +1,109 @@
+interface Computer
+{
+     void code();
+}
+
+class Laptop implements Computer
+{
+    public void code()
+    {
+        System.out.println("code,compile,run");
+    }
+}
+
+class Desktop implements Computer
+{
+    public void code()
+    {
+        System.out.println("code,compile,run faster");
+    }
+}
+
+class Developer
+{
+    public void write(Computer lap)
+    {
+        lap.code();
+    }
+}
+
+public class Main{
+    public static void main(String a[])
+    {
+        Developer dev = new Developer();
+        Computer desk = new Desktop();
+        Computer lap =  new Laptop();
+        dev.write(desk);
+    }
+}
+
+
+Your code is a great example of how interfaces can be used to implement polymorphism in Java. Let's break down why interfaces are useful in this context and how they work in your code.
+
+### **Why Use Interfaces?**
+
+1. **Decoupling Code:**
+   - Interfaces allow you to decouple the implementation of certain behaviors from the code that uses those behaviors. In your example, the `Developer` class doesn't need to know whether it is dealing with a `Laptop` or a `Desktop`. It only knows that it is dealing with something that implements the `Computer` interface.
+
+2. **Polymorphism:**
+   - By using an interface, you enable polymorphism, where a single method can work with different types of objects that implement the same interface. In this case, the `Developer` class can work with any `Computer`, whether it's a `Laptop`, `Desktop`, or any other class that implements `Computer`.
+
+3. **Flexibility and Extensibility:**
+   - If you later want to add more types of computers (e.g., `Tablet`, `Server`, etc.), you simply need to create a new class that implements the `Computer` interface. The `Developer` class and any other class using `Computer` won't need to be changed.
+
+### **How It Works in Your Code:**
+
+1. **Interface Definition:**
+   ```java
+   interface Computer {
+       void code();
+   }
+   ```
+   - The `Computer` interface defines a contract that any class implementing it must provide an implementation for the `code()` method.
+
+2. **Implementing Classes:**
+   - Both `Laptop` and `Desktop` implement the `Computer` interface:
+     ```java
+     class Laptop implements Computer {
+         public void code() {
+             System.out.println("code, compile, run");
+         }
+     }
+
+     class Desktop implements Computer {
+         public void code() {
+             System.out.println("code, compile, run faster");
+         }
+     }
+     ```
+   - These classes provide their own specific implementations of the `code()` method.
+
+3. **Developer Class Using the Interface:**
+   - The `Developer` class has a method `write(Computer lap)` that accepts any object that implements the `Computer` interface:
+     ```java
+     class Developer {
+         public void write(Computer lap) {
+             lap.code();
+         }
+     }
+     ```
+
+4. **Main Method Demonstrating Polymorphism:**
+   - In the `main` method, you create instances of `Laptop` and `Desktop`, but treat them as `Computer` types:
+     ```java
+     public class Main {
+         public static void main(String a[]) {
+             Developer dev = new Developer();
+             Computer desk = new Desktop();
+             Computer lap = new Laptop();
+             dev.write(desk);  // Outputs: "code, compile, run faster"
+         }
+     }
+     ```
+   - `dev.write(desk);` calls the `code()` method on a `Desktop` object, and because `Desktop` has its own implementation of `code()`, it prints `"code, compile, run faster"`.
+
+### **Summary:**
+
+- **Interfaces** provide a way to achieve polymorphism in Java. By using interfaces, your code can be more flexible, modular, and easier to extend.
+- The `Computer` interface allows the `Developer` class to work with any kind of computer, as long as it implements the `Computer` interface.
+- This approach makes your codebase more maintainable, as adding new types of computers doesn't require changes to the `Developer` class or other classes that use the `Computer` interface.
