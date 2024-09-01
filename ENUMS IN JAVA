@@ -12,5 +12,18 @@ public class Main
         for(Status s:ss){
             System.out.println(s);
         }
+
+        if(st == Status.Failed)
+        {
+            System.out.println("Failed");
+        }
+        else if(st == Status.Running)
+        {
+            System.out.println("Running");
+        }
+        else
+        {
+            System.out.println("Success");
+        }
     }
 }
