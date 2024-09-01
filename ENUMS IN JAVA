@@ -1,0 +1,16 @@
+//enums are named constants where it is used to status of the task 
+enum Status{
+    Running,Success,Failed;
+}
+
+public class Main
+{
+    public static void main(String a[]){
+        Status st = Status.Success;
+        System.out.println(st.ordinal()); //index printing for enum
+        Status[] ss = Status.values(); // arranigng into an array
+        for(Status s:ss){
+            System.out.println(s);
+        }
+    }
+}
