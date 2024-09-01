@@ -1,0 +1,12 @@
+1.normal interfaces
+2.functional interfaces or SAM(single abstract methods)
+3.marker interfaces 
+
+normal interfaces ->
+interfaces which allows multiple methods
+
+functional interfaces->
+interfaces which allows only one method and with @functionalinterface annotation
+
+marker interfaces->
+interfaces which have no methods inside it or 0 methods
