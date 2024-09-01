@@ -1,0 +1,38 @@
+//Lambdas Expressions in Java are used to decrease the syntax part of java class 
+@FunctionalInterface
+interface A
+{
+    void show(int i);
+
+}
+public class Main
+{
+    public static void main(String a[])
+    {
+        A obj = (i) -> System.out.println("in show" + i);
+        // we omit the "new A and anonymous functin with just a {->}"
+        // for void interface methods we use s.o.u.t
+        obj.show(6);
+    }
+}
+
+
+@FunctionalInterface
+interface A
+{
+    int mul(int i,int j);
+
+}
+public class Main
+{
+    public static void main(String a[])
+    {
+        A obj = (i,j) -> i*j;
+        //when we need to return a function it needs to pass parameters in a brackets
+        //and write the function operation after "->"
+        // make sure that if you use i,j in interface you should pass the objects with the same names in the lamba expressions also
+        System.out.println(obj.mul(6,8));
+    }
+}
+
+
