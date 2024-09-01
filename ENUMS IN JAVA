@@ -27,3 +27,34 @@ public class Main
         }
     }
 }
+
+
+
+//ENUM CLASSES
+
+enum Mobiles{
+    Vivo(6000),Nokia(5000),Oppo(10000);
+    private int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    Mobiles(int price) {
+        this.price = price;
+    }
+}
+
+public class Main {
+    public static void main(String a[]) {
+        Mobiles mb = Mobiles.Nokia;
+        for(Mobiles mm : Mobiles.values())
+        {
+            System.out.println(mm.name() + " "+mm.getPrice());
+        }
+    }
+}
