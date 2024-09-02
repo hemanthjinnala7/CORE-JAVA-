@@ -1,0 +1,47 @@
+//throwables have 2 types errors and exception
+//errors are uncontrollable
+//exceptions are controllable
+//exceptions are 2 types
+//1. runtime exceptions
+//they are also called as unchecked exceptions where the compile didnt
+//suggest or force you to write an exception
+//2.sql exceptions
+// the compiler shoulf make sure to write an exception
+//creating a new exception
+class HemanthException extends Exception
+{
+    public HemanthException(String str)
+    {
+        super(str);
+    }
+}
+
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+//            int n = 2/0; //arthametic xception
+            String str =  null;
+//            System.out.println(str.length()); // null pointer exception
+            int t = 0;
+            if(t==0) {
+                throw new HemanthException("this is hemanth's exception");
+            }//throwing an exception
+        }
+        catch(ArithmeticException e)
+        {
+            System.out.println("arthametic exception");
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println("hrhrh");
+    }
+}
+
+
+
+
