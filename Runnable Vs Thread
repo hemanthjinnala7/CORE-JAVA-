@@ -1,0 +1,102 @@
+In Java, both `Runnable` and `Thread` are used for creating and managing threads, but they serve different purposes and have distinct roles. Here's a comparison to help clarify the differences between the two:
+
+### 1. **Runnable Interface**:
+   - **Definition**: `Runnable` is a functional interface that represents a task or a block of code that can be executed concurrently by a thread.
+   - **Usage**: When you implement `Runnable`, you define the task that the thread will execute by overriding the `run()` method.
+   - **Decoupling**: Using `Runnable` decouples the task from the thread itself. This is particularly useful when you want the same task to be executed by multiple threads.
+   - **Implementation**:
+     ```java
+     class MyRunnable implements Runnable {
+         @Override
+         public void run() {
+             // Task to be executed
+             System.out.println("Runnable is running");
+         }
+     }
+
+     public class Main {
+         public static void main(String[] args) {
+             MyRunnable myRunnable = new MyRunnable();
+             Thread thread = new Thread(myRunnable);
+             thread.start();
+         }
+     }
+     ```
+     - Here, `MyRunnable` defines the task, and `Thread` is responsible for running it.
+
+### 2. **Thread Class**:
+   - **Definition**: `Thread` is a class that represents a thread of execution in a Java program. It provides methods to create, start, and manage threads.
+   - **Usage**: You can create a thread by either directly extending the `Thread` class or by passing a `Runnable` object to a `Thread` instance.
+   - **Tight Coupling**: Extending `Thread` tightly couples the task to the thread, meaning you cannot reuse the task with another thread unless you create a new instance of the `Thread` class.
+   - **Implementation**:
+     ```java
+     class MyThread extends Thread {
+         @Override
+         public void run() {
+             // Task to be executed
+             System.out.println("Thread is running");
+         }
+     }
+
+     public class Main {
+         public static void main(String[] args) {
+             MyThread myThread = new MyThread();
+             myThread.start();
+         }
+     }
+     ```
+     - Here, `MyThread` both defines the task and represents the thread that will execute it.
+
+### 3. **Comparison**:
+   - **Flexibility**:
+     - `Runnable`: Offers more flexibility since you can implement `Runnable` in a class that already extends another class.
+     - `Thread`: Less flexible because Java doesn’t support multiple inheritance, so if you extend `Thread`, your class cannot extend any other class.
+   - **Reusability**:
+     - `Runnable`: The same `Runnable` instance can be passed to multiple threads.
+     - `Thread`: Each thread instance is tied to its own execution and cannot be reused.
+   - **Separation of Concerns**:
+     - `Runnable`: Separates the task from the execution mechanism, leading to a cleaner design.
+     - `Thread`: Combines the task with the execution mechanism, which may be less ideal for certain design patterns.
+
+### 4. **Best Practices**:
+   - **Prefer `Runnable`**: In general, it’s better to use `Runnable` because it promotes separation of concerns and allows for more flexible and reusable code.
+   - **Use `Thread` for Simple Cases**: If your task is simple and doesn’t require reuse, or if you want to quickly spin up a thread for a specific job, extending `Thread` might be more straightforward.
+
+### Example:
+Here's an example showing both approaches:
+
+#### Using `Runnable`:
+```java
+class Task implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("Runnable task is running");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Thread thread = new Thread(new Task());
+        thread.start();
+    }
+}
+```
+
+#### Using `Thread`:
+```java
+class MyThread extends Thread {
+    @Override
+    public void run() {
+        System.out.println("Thread task is running");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread myThread = new MyThread();
+        myThread.start();
+    }
+}
+```
+
+In summary, use `Runnable` for a more flexible, reusable, and decoupled design, and use `Thread` for simpler cases where these benefits are not necessary.
