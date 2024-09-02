@@ -1,0 +1,111 @@
+import java.util.Scanner;
+// threads make the task done parllely
+// in a video game like pubg
+//the player fires the gun
+// the ammo in the gun decresing when he fire the gun
+//the game time is also decreasing
+// all these are tasks which known as threads make the game more exciting
+// a single task in this scenario is called as thread
+//so we can use thread in a class extening the Thread Class
+// make sure when we use the threads we use method name in our class as {"run"}
+//to start the thread we use class.start() to start the thread
+class A extends Thread
+{
+    public void run()
+    {
+        for(int i=0;i<=3;i++)  System.out.println("in A show");
+    }
+}
+class B extends Thread
+{
+    public void run()
+    {
+        for(int i=0;i<=3;i++)  System.out.println("in B show");
+    }
+}
+public class Main {
+    public static void main(String args[]) {
+        A a = new A();
+        B b = new B();
+        b.start();
+        a.start();
+//        in A show
+        in B show
+        in B show
+        in B show
+        in B show
+        in A show
+        in A show
+        in A show
+
+    }
+}
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// my aim to create a thread that shows like
+// in a show
+//in b show
+// in a show
+//in b show
+//vice verse
+// to make this type.. we use sleep in thread where units are milli seconds
+//sleep is to make the thread wait for some time
+//the thread.sleep is a type of checked exception so it demands a try catch block to throw an exception
+
+
+class A extends Thread
+{
+    public void run()
+    {
+        for(int i=0;i<=19;i++)
+        {
+            System.out.println("in A show");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+}
+class B extends Thread
+{
+    public void run()
+    {
+        for(int i=0;i<=19;i++)
+        {
+            System.out.println("in B show");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+}
+public class Main {
+    public static void main(String args[]) {
+        A a = new A();
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        B b = new B();
+        a.start();
+        b.start();
+    }
+}
+
+
+
+
+
+
